@@ -3,7 +3,9 @@ import sys
 #find greated common denom of a & b, euclids algo
 def gcd(a,b):
     #print("gcd(" + str(a) + "," + str(b) + ")")
+    print(f"{a} % {b} = {a%b}")
     if a % b == 0: #base
+        print(f"GCD = {b}")
         return b
     else:
         return gcd(b, a % b)

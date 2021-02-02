@@ -2,7 +2,13 @@ import sys
 import gcd
 
 def lcm(a,b):
-    return (a*b) // gcd.gcd(a,b)
+    gcdR = gcd.gcd(a,b)
+    atb = (a*b)
+    r = atb // gcdR
+    print(f"a * b = {atb}")
+    print("a * b / gcd = lcm")
+    print(f"{atb} / {gcdR} = {r}")
+    return r
     
 
 if __name__ == "__main__":
