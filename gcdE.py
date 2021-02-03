@@ -6,7 +6,7 @@ def gcdEH(a,b,prev1,prev2,prev2a,prev1a,prev2b,prev1b):
 
     if rP == 0:
         print(f"{prev2} % {prev1} = 0")
-        return prev1
+        return prev1, prev1a, prev1b
 
     m1 = prev2a - qP * prev1a
     m2 = prev2b - qP * prev1b
@@ -26,13 +26,14 @@ def gcdE(a,b):
     q = a // b
     r = a % b
 
-    if r == 0:
-        print(f"{a} % {b} = 0")
-        return b
-
     print(f"{a} = 1 * {a} + 0 * {b}")
     print(f"{b} = 0 * {a} + 1 * {b}")
     print(f">>{a} = {q} * {b} + {r}")
+
+    if r == 0:
+        print(f"{a} % {b} = 0")
+        return b, 0, 1
+
     print(f"{r} = 1 * {a} - {q} * {b}")
     
     return gcdEH(a,b,r,b,0,1,1,-q)
@@ -49,4 +50,6 @@ if __name__ == "__main__":
         quit()
     b = int(sys.argv[1])
     a = int(sys.argv[2])
-    print(gcdE(a,b))
+
+    gcdVal, u, v = gcdE(a,b)
+    print(f"GCD = {gcdVal}, u = {u}, v = {v}")

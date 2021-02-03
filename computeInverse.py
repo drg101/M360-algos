@@ -1,52 +1,36 @@
 import sys
+import gcdE
 
-def computeInverseH(a,b,prev1,prev2,prev2a,prev1a,prev2b,prev1b):
-    qP = prev2 // prev1
-    rP = prev2 % prev1
-
-    m1 = prev2a - qP * prev1a
-    m2 = prev2b - qP * prev1b
-    print(f">>{prev2} = {qP} * {prev1} + {rP}")
-    print(f"{rP} = {m1} * {a} + {m2} * {b}")
-    
-    if rP == 1:
-        print(f"{m2} % {a}")
-        return m2 % a
-
-    return computeInverseH(a,b,rP,prev1,prev1a,m1,prev1b,m2)
 
 #compute inverse of b % a(Find inverse of a when modding by b)
 def computeInverse(a,b):
+    if b == 0:
+        return 0
     if b > a:
         print("Error! a should be more than b!")
         print("Getting congruence class of b")
         print(f"b = {b} % {a}")
         b = b % a
         print(f"b is now {b}")
-    
-    q = a // b
-    r = a % b
 
-    print(f"{a} = 1 * {a} + 0 * {b}")
-    print(f"{b} = 0 * {a} + 1 * {b}")
-    print(f">>{a} = {q} * {b} + {r}")
-    print(f"{r} = 1 * {a} - {q} * {b}")
-    
-    if r == 1: 
-        print(f"{-q} % {a}")
-        return (-q) % a
-    return computeInverseH(a,b,r,b,0,1,1,-q)
+    gcdVal, u, v = gcdE.gcdE(a,b)
+    print(f"GCD = {gcdVal}, u = {u}, v = {v}")
 
+    if gcdVal == 1:
+        inverse = v % a
+        print(f"Inverse = {v} % {a} = {inverse}")
+        print(f"Inverse of {b} % {a} = {inverse}")
+        return inverse
+    else:
+        print(f"{b} % {a} has no inverse")
+        return b
 
-
-
-
-    
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("Usage: " + sys.argv[0] + " a b")
+        print("Usage: " + sys.argv[0] + " b a")
         quit()
     b = int(sys.argv[1])
     a = int(sys.argv[2])
     print(computeInverse(a,b))
+    
