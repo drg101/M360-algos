@@ -3,7 +3,7 @@ import pFactor
 
 def euler(p):
     factors = pFactor.pFactor(p)
-    print(factors)
+    print(f"Factors: {factors}")
     ret = 1
     for fac in factors:
         ret *= primeEuler(int(fac), factors[fac])

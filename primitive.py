@@ -6,16 +6,15 @@ def primitive(p):
     print(f"-- primitive({p}) --")
     pm1 = p - 1
     factors = pFactor.pFactor(pm1)
+    print(f"Factors: {factors}")
     for a in range(2,pm1):
         print(f"Trying a = {a}")
         flag = False
         for fac in factors:
-            print(f"\nTesting against factor {fac}")
-            print(f"////////////powMod({a}, {pm1} / {fac}, 1, {p}):////////////")
+            print(f"Testing against factor {fac}")
             pwmd = powmod.powMod(a, pm1 / int(fac), 1, p)
-            print("///////////////////////////////\n")
             if(pwmd == 1):
-                print(f"powMod({a}, {pm1} / {fac}, 1, {p}) == 1, getting new a")
+                print(f"powMod({a}, {pm1} / {fac}, 1, {p}) == 1, getting new a\n")
                 flag = True
                 break
             else:

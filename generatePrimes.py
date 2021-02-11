@@ -1,3 +1,4 @@
+#from internet
 import sys
 
 def generatePrimes(n):
