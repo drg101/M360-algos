@@ -1,14 +1,16 @@
 import sys
 
 #find greated common denom of a & b, euclids algo
-def gcd(a,b):
+def gcd(a,b,log=False):
     #print("gcd(" + str(a) + "," + str(b) + ")")
-    print(f"{a} % {b} = {a%b}")
+    if log:
+        print(f"{a} % {b} = {a%b}")
     if a % b == 0: #base
-        print(f"GCD = {b}")
+        if log:
+            print(f"GCD = {b}")
         return b
     else:
-        return gcd(b, a % b)
+        return gcd(b, a % b, log)
     
 
 if __name__ == "__main__":
@@ -17,4 +19,4 @@ if __name__ == "__main__":
         quit()
     a = int(sys.argv[1])
     b = int(sys.argv[2])
-    print(gcd(a,b))
+    print(gcd(a,b,log=True))
