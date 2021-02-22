@@ -3,7 +3,7 @@ import powmod
 import gcd
 from random import randint
 
-def fermatTest(pTest,iter=5):
+def fermatTest(pTest,iter=5,log=False):
     iterations = min(pTest - 1, iter)
     for i in range(2,iterations + 1):
         a = -1
@@ -11,17 +11,20 @@ def fermatTest(pTest,iter=5):
             rand = randint(2, pTest - 1)
             if gcd.gcd(pTest, rand) == 1:
                 a = rand
-        
-        print(f"Testing with {a}")
+        if log:
+            print(f"Testing with {a}")
         if isNotPrime(pTest,a):
-            print(f"{pTest} is not prime, because {a}^{pTest-1} != 1 mod {pTest}")
+            if log:
+                print(f"{pTest} is not prime, because {a}^{pTest-1} != 1 mod {pTest}")
             return False
-    print(f"{pTest} is probably prime.")
+    if log:
+        print(f"{pTest} is probably prime.")
     return True
 
-def isNotPrime(pTest, a): #not being prime does not necessarily imply it is prime
+def isNotPrime(pTest, a, log=False): #not being prime does not necessarily imply it is prime
     powmodResult = powmod.powMod(a,pTest - 1,1,pTest)
-    print(f"{a}^{pTest-1} = {powmodResult} mod {pTest}")
+    if log:
+        print(f"{a}^{pTest-1} = {powmodResult} mod {pTest}")
     return powmod.powMod(a,pTest - 1,1,pTest) != 1
 
 if __name__ == "__main__":
@@ -33,4 +36,4 @@ if __name__ == "__main__":
         print("Setting iterations to 5")
     else:
         iterate = int(sys.argv[2])  
-    print(fermatTest(int(sys.argv[1]), iterate))
+    print(fermatTest(int(sys.argv[1]), iterate, True))
