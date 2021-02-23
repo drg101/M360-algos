@@ -29,7 +29,7 @@ if __name__ == "__main__":
     print(f"Serialized message = m = {m}")
     print(f"p = {p}")
     print(f"q = {q}")
-    print(f"n = {p} * {q} = {n}")
+    print(f"n = p * q = {n}")
     print(f"k = phi(n) = (p - 1) * (q - 1) = {k}")
     print(f"Finding an e which gcd(e,k) = 1")
     e = coPrime.coPrime(k)
