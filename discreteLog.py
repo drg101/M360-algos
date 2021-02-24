@@ -12,7 +12,7 @@ def discreteLog(a,n,p):
         return cycle.index(n) + 1
     else:
         print("Using brute force approach!")
-        for k in range(2,p):
+        for k in range(2,9999):
             if powmod.powMod(a,k,1,p) == n:
                 return k
 
