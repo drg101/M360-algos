@@ -23,8 +23,8 @@ def polyMult(num1,num2,polyBitString,log=False):
     numMultRes = "0"
     for bits in addUp:
         numMultRes = bitsXOR.bitsXOR(numMultRes,bits)
-    
-    if log: print(f"{numMultRes}")
+    if log: print(f"{numMultRes:>{COMPUTESIZE}}\n")
+
     if log: print(f"{numMultRes} / {polyBitString} = ")
     res = numMultRes
     if log: print(f"{BANNER}")
