@@ -3,6 +3,7 @@ import bitsToPoly
 import decimalToBinary
 import decimalToPoly
 import bitsXOR
+import polyLongDiv
 
 def polyMult(num1,num2,polyBitString,log=False):
     COMPUTESIZE = 25
@@ -25,17 +26,7 @@ def polyMult(num1,num2,polyBitString,log=False):
         numMultRes = bitsXOR.bitsXOR(numMultRes,bits)
     if log: print(f"{numMultRes:>{COMPUTESIZE}}\n")
 
-    if log: print(f"{numMultRes} / {polyBitString} = ")
-    res = numMultRes
-    if log: print(f"{BANNER}")
-    while int(res,2) > int(polyBitString,2):
-        if log: print(f"{res:>{COMPUTESIZE}}")
-        addWith = polyBitString + ("0" * (len(res) - len(polyBitString)))
-        if log: print(f"{addWith:>{COMPUTESIZE}}")
-        res = bitsXOR.bitsXOR(res,addWith)
-        print(f"{res:>{COMPUTESIZE}}")
-        if log: print(f"{BANNER}")
-    return int(res,2)
+    return polyLongDiv.polyLongDiv(numMultRes,polyBitString,log)
 
 
 
