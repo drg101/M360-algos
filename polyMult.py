@@ -2,7 +2,6 @@ import sys
 import bitsToPoly
 import decimalToBinary
 import decimalToPoly
-import bitsXOR
 import polyLongDiv
 
 def polyMult(num1,num2,polyBitString,log=False):
@@ -23,7 +22,7 @@ def polyMult(num1,num2,polyBitString,log=False):
     if log: print(f"{BANNER}")
     numMultRes = "0"
     for bits in addUp:
-        numMultRes = bitsXOR.bitsXOR(numMultRes,bits)
+        numMultRes = decimalToBinary.decimalToBinary(int(numMultRes,2) ^ int(bits,2))
     if log: print(f"{numMultRes:>{COMPUTESIZE}}\n")
 
     return polyLongDiv.polyLongDiv(numMultRes,polyBitString,log)

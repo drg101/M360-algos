@@ -1,8 +1,7 @@
 import sys
 import bitsToPoly
-import decimalToBinary
+from decimalToBinary import decimalToBinary
 import decimalToPoly
-import bitsXOR
 
 def polyLongDiv(polyBitString1,polyBitString2,log=False):
     COMPUTESIZE = 25
@@ -10,11 +9,11 @@ def polyLongDiv(polyBitString1,polyBitString2,log=False):
     if log: print(f"{polyBitString1} / {polyBitString2} = ")
     res = polyBitString1
     if log: print(f"{BANNER}")
-    while int(res,2) > int(polyBitString2,2):
+    while len(res) >= len(polyBitString2):
         if log: print(f"{res:>{COMPUTESIZE}}")
         addWith = polyBitString2 + ("0" * (len(res) - len(polyBitString2)))
         if log: print(f"{addWith:>{COMPUTESIZE}}")
-        res = bitsXOR.bitsXOR(res,addWith)
+        res = decimalToBinary(int(res,2) ^ int(addWith,2))
         if log: print(f"{res:>{COMPUTESIZE}}")
         if log: print(f"{BANNER}")
     return int(res,2)

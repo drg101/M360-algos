@@ -1,19 +1,18 @@
 import sys
 import bitsToPoly
-import decimalToBinary
+from decimalToBinary import decimalToBinary
 import decimalToPoly
-import bitsXOR
 import polyLongDiv
 
 def polyAdd(num1,num2,polyBitString,log=False):
     COMPUTESIZE = 25
     BANNER = "#" * COMPUTESIZE
     if log: print(f"Finding {num1} + {num2} mod ({bitsToPoly.bitsToPoly(polyBitString)})")
-    bits1 = decimalToBinary.decimalToBinary(num1)
-    bits2 = decimalToBinary.decimalToBinary(num2)
+    bits1 = decimalToBinary(num1)
+    bits2 = decimalToBinary(num2)
     if log: print(f"{num1} + {num2} = ")
     if log: print(f"{bits1} + {bits2} = ")
-    numAddRes = bitsXOR.bitsXOR(bits1,bits2)
+    numAddRes = decimalToBinary(int(bits1,2)^int(bits2,2))
     if log: print(f"{numAddRes:>{COMPUTESIZE}}\n")
 
     return polyLongDiv.polyLongDiv(numAddRes,polyBitString,log)

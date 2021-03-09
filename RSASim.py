@@ -18,7 +18,7 @@ if __name__ == "__main__":
         q = int(sys.argv[3])
     else:
         messageToSend = sys.argv[1]
-        p = generateBigPrime.generateBigPrime(len(messageToSend) + 1)
+        p = generateBigPrime.generateBigPrime(len(messageToSend) + 1 + 2)
         q = generateBigPrime.generateBigPrime(len(messageToSend) + 1)
 
     m = basicAlphabetSerializer.serialize(messageToSend)

@@ -16,8 +16,9 @@ if __name__ == "__main__":
     if len(sys.argv) != 4:
         print("Usage: " + sys.argv[0] + " num1 num2 polyBitString")
         quit()
-    print(polyPowmod(int(sys.argv[1]),int(sys.argv[2]),1,sys.argv[3],True))
+    polyPowmodRes = polyPowmod(int(sys.argv[1]),int(sys.argv[2]),1,sys.argv[3],True)
+    print(f"polyPowmod = {polyPowmodRes}")
     res = 1
     for i in range(int(sys.argv[2])):
         res = polyMult(int(sys.argv[1]),res,sys.argv[3])
-    print(res)
+    print(f"Iterative = {res}")
