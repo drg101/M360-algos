@@ -3,9 +3,9 @@ from polyMult import polyMult
 from bitsToPoly import bitsToPoly
 
 def polyPowmod(a,n,b,p,log=False):
-    print(f"doing polyPowmod({a},{n},{b},{p})")
+    if log: print(f"doing polyPowmod({a},{n},{b},{p})")
     if n == 1:
-        print(f"Returning {a} * {b} mod ({bitsToPoly(p)})")
+        if log: print(f"Returning {a} * {b} mod ({bitsToPoly(p)})")
         return polyMult(a,b,p)
     if n % 2 == 0:
         return polyPowmod(polyMult(a,a,p),n//2,b,p,log)
