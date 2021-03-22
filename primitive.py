@@ -24,7 +24,9 @@ def primitive(p):
             print(f"Primitive element = {a}")
             return a
 
-def fieldPrimitive(base, poly):
+from baseToPoly import baseToPoly
+def fieldPrimitive(base):
+    poly = baseToPoly(base)
     print(f"-- primitive(F{base}) --")
     bm1 = base - 1
     factors = pFactor.pFactor(bm1)
