@@ -6,7 +6,7 @@ from polyPowmod import polyPowmod
 from baseToPoly import baseToPoly
 
 
-def sqrtFieldMod(a,base):
+def sqrtField(a,base):
     qm1 = base - 1
     print(f"Finding sqrt({a}) in F{base}")
     primitive = fieldPrimitive(base)
@@ -26,4 +26,4 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: " + sys.argv[0] + " a n p, where a^n % p")
         quit()
-    print(sqrtFieldMod(int(sys.argv[1]),int(sys.argv[2])))
+    print(sqrtField(int(sys.argv[1]),int(sys.argv[2])))
