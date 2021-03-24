@@ -26,7 +26,7 @@ def quadraticEq(a,b,c,base):
         print(f"x = by/a = {sx}")
         print(f"{a}{sx}^2 + {b}{sx} + {c} = 0")
         print(f"{a}{sx}^2 + {b}{sx} = {c}")
-        newA = polyPowmod(polyMult(a,bOverA,poly),2,1,poly)
+        newA = polyMult(polyPowmod(bOverA,2,1,poly),a,poly)
         newB = polyMult(b,bOverA,poly)
         print(f"{newA}y^2 + {newB}y = {c}")
         if not(newA == newB):
