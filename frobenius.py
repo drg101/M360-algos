@@ -9,6 +9,9 @@ def frobeniusPowers(base):
     print(f"Frobenius pows of {base} are {powers}")
     return powers
 
+def frobeniusMax(base):
+    return frobeniusPowers(base)[-1]
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
             print("Usage: " + sys.argv[0] + " base")

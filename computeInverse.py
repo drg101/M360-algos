@@ -2,7 +2,7 @@ import sys
 import gcdE
 
 
-#compute inverse of b % a(Find inverse of a when modding by b)
+#compute inverse of b % a(Find inverse of b when modding by a)
 def computeInverse(a,b,log=False):
     if b == 0:
         return 0
