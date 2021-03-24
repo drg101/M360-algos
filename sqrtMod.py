@@ -4,7 +4,7 @@ from getCycle import getFieldCycle
 from computeInverse import computeInverse
 from polyPowmod import polyPowmod
 from baseToPoly import baseToPoly
-from frobenius import frobeniusMax
+from frobenius import frobeniusSqrt
 
 
 def sqrtField(a,base):
@@ -21,7 +21,7 @@ def sqrtField(a,base):
     # res = polyPowmod(a,k*(s+1),1,baseToPoly(base),True)
     # print(f"Ans = (a^k)^(s+1) = {res}")
     #return res
-    return polyPowmod(a,frobeniusMax(base),1,baseToPoly(base))
+    return polyPowmod(a,frobeniusSqrt(base),1,baseToPoly(base))
 
 
 if __name__ == "__main__":

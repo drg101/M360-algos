@@ -1,4 +1,12 @@
 import sys
+from characteristic import characteristic
+from pFactor import pFactor
+
+def frobenius(base):
+    h = characteristic(base)
+    if(h):
+        factors = pFactor(base)
+        return h**factors[str(h)]
 
 def frobeniusPowers(base):
     powers = []
@@ -9,7 +17,7 @@ def frobeniusPowers(base):
     print(f"Frobenius pows of {base} are {powers}")
     return powers
 
-def frobeniusMax(base):
+def frobeniusSqrt(base):
     return frobeniusPowers(base)[-1]
 
 if __name__ == "__main__":
