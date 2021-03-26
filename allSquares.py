@@ -4,11 +4,9 @@ from isASquare import isASquare
 def allSquares(base):
     print(f"Finding all squares in F{base}")
     squares = []
-    for i in range(base//2):
+    for i in range(base):
         if isASquare(i,base) == 1:
             squares.append(i)
-            if i:
-                squares.append(base - i)
     return squares
 
 def allSquaresAndRoots(base):
