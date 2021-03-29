@@ -1,6 +1,9 @@
 import sys
 import argparse
 
+def powmod(a,n,p,log=False):
+    return powMod(a,n,1,p,log)
+    
 #find a^n % p
 def powMod(a,n,b,p,log = False):
     if log:
