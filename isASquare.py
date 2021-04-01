@@ -7,6 +7,51 @@ from isPrime import isPrime
 #1 iff a is a nonzero square mod p
 #-1 iff a is a nonsquare mod p
 
+def legendre(a,p):
+    return isASquare(a,p,0,True)
+
+def jacobi(a,b,d=0,log=True):
+    space = "  " * d
+    if log: print(f"{space}({a}/{b})",end = " => ")
+    d = d+1
+    if a == 0:
+        if log: print("2a = 0")
+        return 0
+    if a == 1:
+        if log: print("2b = 1")
+        return 1
+    if a == -1:
+        res = (-1)**((b-1)//2)
+        if log: print(f"2c = {res}")
+        return res
+    if a == 2:
+        res = (-1)**((b**2 - 1)//8)
+        if log: print(f"2d = {res}")
+        return res
+    if not(isPrime(a)):
+        aFactored = pFactor(a)
+        res = 1
+        if log: print(f"1a factoring {a}")
+        for factor in aFactored:
+            for _ in range(aFactored[factor]):
+                res *= jacobi(int(factor),b,d,log)
+        return res
+    if not(isPrime(b)):
+        bFactored = pFactor(b)
+        res = 1
+        if log: print(f"1b factoring {b}")
+        for factor in bFactored:
+            for _ in range(bFactored[factor]):
+                res *= jacobi(a,int(factor),d,log)
+        return res
+    if a >= b:
+        if log: print(f"1c, doing a = {a} % {b}")
+        return jacobi(a % b, b, d,log)
+    reciprocityMult = (-1)**(((a-1)//2)*((b-1)//2))
+    if log: print(f"2e * {reciprocityMult}")
+    return jacobi(b,a,d,log) * reciprocityMult
+
+
 #a is int, p is prime
 def isASquare(a,p,d=0,log=False):
     space = "  " * d
