@@ -1,11 +1,11 @@
 import sys
-from isASquare import isASquare
+from isASquare import isASquare, jacobi
 
 def allSquares(base):
     print(f"Finding all squares in F{base}")
     squares = []
     for i in range(base):
-        if isASquare(i,base) == 1:
+        if jacobi(i,base,0,False) == 1:
             squares.append(i)
     return squares
 
