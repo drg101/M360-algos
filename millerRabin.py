@@ -5,7 +5,7 @@ import coPrime
 
 #true = inconclusive
 #false = not a prime
-def millerRabin(n,iter=5):
+def millerRabin(n,iter=5,log=False):
     if n <= 2:
         return True
     factors = pFactor.pFactor(n - 1)

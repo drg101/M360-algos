@@ -1,9 +1,10 @@
 import sys
 import fermatTest
 import millerRabin
+from solovayStrassen import solovayStrassen
 
-def probalisticIsPrime(pTest,log=False): #work in progress, only doing a fermat test now
-    return fermatTest.fermatTest(pTest) and millerRabin.millerRabin(pTest)
+def probalisticIsPrime(pTest,log=False): 
+    return fermatTest.fermatTest(pTest,log) and millerRabin.millerRabin(pTest,log) and solovayStrassen(pTest,log)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
