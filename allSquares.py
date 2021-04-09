@@ -5,8 +5,9 @@ def allSquares(base):
     print(f"Finding all squares in F{base}")
     squares = []
     for i in range(base):
-        if jacobi(i,base,0,False) == 1:
-            squares.append(i)
+        square = i*i % base
+        if not(square in squares):
+            squares.append(square)
     return squares
 
 def allSquaresAndRoots(base):
