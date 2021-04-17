@@ -3,25 +3,25 @@ import pFactor
 import powmod
 from polyPowmod import polyPowmod
 
-def primitive(p):
-    print(f"-- primitive({p}) --")
+def primitive(p,log=False):
+    if log: print(f"-- primitive({p}) --")
     pm1 = p - 1
     factors = pFactor.pFactor(pm1)
     print(f"Factors: {factors}")
     for a in range(2,pm1):
-        print(f"Trying a = {a}")
+        if log: print(f"Trying a = {a}")
         flag = False
         for fac in factors:
-            print(f"Testing against factor {fac}")
+            if log: print(f"Testing against factor {fac}")
             pwmd = powmod.powMod(a, pm1 / int(fac), 1, p)
             if(pwmd == 1):
-                print(f"powMod({a}, {pm1} / {fac}, 1, {p}) == 1, getting new a\n")
+                if log: print(f"powMod({a}, {pm1} / {fac}, 1, {p}) == 1, getting new a\n")
                 flag = True
                 break
             else:
-                print(f"powMod({a}, {pm1} / {fac}, 1, {p}) != 1")
+                if log: print(f"powMod({a}, {pm1} / {fac}, 1, {p}) != 1")
         if flag == False:
-            print(f"Primitive element = {a}")
+            if log: print(f"Primitive element = {a}")
             return a
 
 from baseToPoly import baseToPoly
@@ -53,5 +53,5 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: " + sys.argv[0] + " p")
         quit()
-    print(primitive(int(sys.argv[1])))
+    print(primitive(int(sys.argv[1]),True))
     

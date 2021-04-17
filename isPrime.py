@@ -2,7 +2,7 @@ import sys
 
 def isPrime(a):
     if a > 1:
-        for i in range(2, a):  
+        for i in range(2, a**0.5):  
             if (a % i) == 0:
                 return False
                 break
