@@ -12,9 +12,13 @@ def discreteLog(a,n,p):
         return cycle.index(n) + 1
     else:
         print("Using brute force approach!")
-        for k in range(2,9999):
+        for k in range(2,9999999):
             if powmod.powMod(a,k,1,p) == n:
                 return k
+
+def bsgs(a,n,p):
+    B = []
+    G = []
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
