@@ -30,7 +30,7 @@ def printTable(dic):
         for key in list(dic.keys()):
             nex += f"{dic[key][row]}|"
         res += nex + "\n"
-    display(Markdown(res))
+    printmd(res)
 
 def boldifyList(li):
     return list(map(boldify, li))
@@ -43,4 +43,10 @@ def latexifyList(li):
 
 def latexify(a):
     return f"${a}$"
+
+def printex(a):
+    printmd(latexify(a))
+
+def printmd(a):
+    display(Markdown(f"{a}"))
 

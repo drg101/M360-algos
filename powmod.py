@@ -6,6 +6,8 @@ def powmod(a,n,p,log=False):
     
 #find a^n % p
 def powMod(a,n,b,p,log = False):
+    if n == 0:
+        return 1
     if log:
         print(f"\nn = {n}")
     if n == 1:
