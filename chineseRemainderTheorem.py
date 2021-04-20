@@ -34,21 +34,3 @@ def crtProblem(a,b,p,q):
     #k cong zDivP mod q
     k = zDivP % q
     return (a + k * p) % (p*q)
-
-def printCrtTable(tab):
-    mkdwn = "|p/q"
-    #display(Markdown('*some markdown* $\phi$'))
-    numCols = len(tab[0])
-    for col in range(numCols):
-        mkdwn += f"|${col}$"
-    mkdwn += "|\n"
-    for _ in range(numCols+1):
-        mkdwn += f"|:-:"
-    mkdwn += "|"
-    rowN = 0
-    for row in tab:
-        mkdwn += f"\n|${rowN}$|"
-        rowN += 1
-        for col in row:
-            mkdwn += f"${col}$|"
-    display(Markdown(mkdwn))
