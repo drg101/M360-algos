@@ -4,7 +4,7 @@ from random import randint
 from pFactor import pFactor
 
 # lets find an x for which x^2 = a mod p
-def rootsModP(a,p):
+def rootModP(a,p):
     print(f"Finding roots mod P for a={a},p={p}")
     assert jacobi(a,p,0,False) == 1
     c = case(p)
@@ -51,6 +51,7 @@ def rootsModP(a,p):
             assert powmod(b,powmod(2,r-1,p),p) == 1
             print(f"y={y}, x={x}, b={b}, r={r}")
             if b % p == 1:
+                assert x**2 % p == a
                 return x
             m = -1
             for i in range(1,r):

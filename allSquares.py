@@ -3,12 +3,7 @@ from isASquare import isASquare, jacobi
 
 def allSquares(base):
     print(f"Finding all squares in F{base}")
-    squares = []
-    for i in range(base):
-        square = i*i % base
-        if not(square in squares):
-            squares.append(square)
-    return squares
+    return list(allSquaresAndRoots(base).keys())
 
 def allSquaresAndRoots(base):
     print(f"Finding all squares and their roots in F{base}")

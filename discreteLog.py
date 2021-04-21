@@ -3,8 +3,10 @@ import primitive
 import allPrimitives
 import getCycle
 import powmod
+from printNB import printmd
 
 def discreteLog(a,n,p):
+    printmd(f"Finding $x$ for which ${a}^{{x}}={n}\ mod \ {p}$")
     allPrim = allPrimitives.allPrimitives(p)
     if a in allPrim:
         print(f"{a} is a primitive element of {p}, getting cycle of {a} mod {p}")
@@ -12,7 +14,7 @@ def discreteLog(a,n,p):
         return cycle.index(n) + 1
     else:
         print("Using brute force approach!")
-        for k in range(2,9999999):
+        for k in range(2,99999):
             if powmod.powMod(a,k,1,p) == n:
                 return k
 

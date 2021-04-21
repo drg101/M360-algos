@@ -1,5 +1,3 @@
-from IPython.display import display, Markdown, Latex
-
 def crt(p,q,complex=False):
     tab = [ [ -1 for _ in range(q) ] for _ in range(p) ]
     #we now have table with p rows and q cols
