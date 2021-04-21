@@ -2,10 +2,11 @@ import sys
 from random import randint
 import probalisticIsPrime
 
-def generateBigPrime(digits=10):
+def generateBigPrime(digits=10,log=False):
     while True:
         test = random_with_N_digits(digits)
-        if probalisticIsPrime.probalisticIsPrime(test):
+        if log: print(f"Trying n={test}")
+        if probalisticIsPrime.probalisticIsPrime(test,log):
             return test
 
 def random_with_N_digits(n): #https://stackoverflow.com/questions/2673385/how-to-generate-random-number-with-the-specific-length-in-python

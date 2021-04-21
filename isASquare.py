@@ -11,6 +11,8 @@ def legendre(a,p):
     return isASquare(a,p,0,True)
 
 def jacobi(a,b,d=0,log=True):
+    assert b % 2 != 0, f"b should be odd, but b was {b}"
+
     space = "  " * d
     if log: print(f"{space}({a}/{b})",end = " => ")
     d = d+1

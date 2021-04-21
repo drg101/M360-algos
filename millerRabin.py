@@ -6,6 +6,7 @@ import coPrime
 #true = inconclusive
 #false = not a prime
 def millerRabin(n,iter=5,log=False):
+    if log: print(f"Doing miller rabin with {iter} iterations")
     if n <= 2:
         return True
     factors = pFactor.pFactor(n - 1)
@@ -18,6 +19,7 @@ def millerRabin(n,iter=5,log=False):
             m *= int(fac)**factors[fac]
     for z in range(iter):
         a = coPrime.coPrime(n)
+        if log: print(f"trying a={a}")
         bNaught = powmod.powMod(a,m,1,n)
         if bNaught == 1 or bNaught == -1 % n:
              continue

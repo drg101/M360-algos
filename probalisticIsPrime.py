@@ -4,7 +4,7 @@ import millerRabin
 from solovayStrassen import solovayStrassen
 
 def probalisticIsPrime(pTest,log=False): 
-    return fermatTest.fermatTest(pTest,log) and millerRabin.millerRabin(pTest,log) and solovayStrassen(pTest,log)
+    return fermatTest.fermatTest(pTest,5,log) and millerRabin.millerRabin(pTest,5,log) and solovayStrassen(pTest,5,log)
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

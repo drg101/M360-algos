@@ -4,6 +4,7 @@ import gcd
 from random import randint
 
 def fermatTest(pTest,iter=5,log=False):
+    if log: print(f"Doing fermat test with {iter} iterations")
     iterations = min(pTest - 1, iter)
     for i in range(2,iterations + 1):
         a = -1
@@ -17,8 +18,6 @@ def fermatTest(pTest,iter=5,log=False):
             if log:
                 print(f"{pTest} is not prime, because {a}^{pTest-1} != 1 mod {pTest}")
             return False
-    if log:
-        print(f"{pTest} is probably prime.")
     return True
 
 def isNotPrime(pTest, a, log=False): #not being prime does not necessarily imply it is prime
