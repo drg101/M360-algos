@@ -3,13 +3,14 @@ import primitive
 import getCycle
 import zStarN
 
-def allPrimitives(p):
+def allPrimitives(p, log=False):
     prim = primitive.primitive(p)
     cycle = getCycle.getCycle(prim, p)
     zStarn = zStarN.zStarN(p - 1)
     
-    print(f"Cycle: {cycle}")
-    print(f"ZstarN: {zStarn}")
+    if log: 
+        print(f"Cycle: {cycle}")
+        print(f"ZstarN: {zStarn}")
     #now read off primitives 
     prims = []
     for i in zStarn:

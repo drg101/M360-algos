@@ -7,7 +7,7 @@ def primitive(p,log=False):
     if log: print(f"-- primitive({p}) --")
     pm1 = p - 1
     factors = pFactor.pFactor(pm1)
-    print(f"Factors: {factors}")
+    if log: print(f"Factors: {factors}")
     for a in range(2,pm1):
         if log: print(f"Trying a = {a}")
         flag = False
