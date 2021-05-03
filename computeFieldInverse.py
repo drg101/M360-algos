@@ -1,13 +1,12 @@
 import sys
 from polyMult import polyMult
 from baseToPoly import baseToPoly
+from polyPowmod import polyPowmod
 
 #brute force algo
 def computeFieldInverse(base,a,log=False):
     poly = baseToPoly(base)
-    for i in range(1,base):
-        if polyMult(a,i,poly) == 1:
-            return i
+    return polyPowmod(a,base-2,poly)
     return -1
 
 if __name__ == "__main__":
