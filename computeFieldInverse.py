@@ -6,7 +6,7 @@ from polyPowmod import polyPowmod
 #brute force algo
 def computeFieldInverse(base,a,log=False):
     poly = baseToPoly(base)
-    return polyPowmod(a,base-2,poly)
+    return polyPowmod(a,base-2,1,poly)
     return -1
 
 if __name__ == "__main__":
